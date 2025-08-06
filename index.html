@@ -291,6 +291,104 @@
             font-size: 0.85rem;
             line-height: 1.4;
             min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-code-content {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-code-content {
+            opacity: 1;
+        }
+
+        .project-code .typewriter {
+            overflow: hidden;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .project-card:hover .typewriter {
+            display: block;
+        }
+
+        .project-card:hover .project-code-content {
+            display: none;
+        }
+
+        .typewriter-line {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            opacity: 0;
+            border-right: 2px solid transparent;
+            animation-fill-mode: forwards;
+        }
+
+        .project-card:hover .typewriter-line:nth-child(1) {
+            animation: typeLine 0.8s steps(40) 0s forwards, showLine 0s 0s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(2) {
+            animation: typeLine 1s steps(20) 0.8s forwards, showLine 0s 0.8s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(3) {
+            animation: typeLine 1.2s steps(30) 1.8s forwards, showLine 0s 1.8s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(4) {
+            animation: typeLine 1s steps(35) 3s forwards, showLine 0s 3s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(5) {
+            animation: typeLine 1.2s steps(40) 4s forwards, showLine 0s 4s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(6) {
+            animation: typeLine 0.8s steps(20) 5.2s forwards, showLine 0s 5.2s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(7) {
+            animation: typeLine 1.5s steps(45) 6s forwards, showLine 0s 6s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(8) {
+            animation: typeLine 1s steps(50) 7.5s forwards, showLine 0s 7.5s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(9) {
+            animation: typeLine 1.2s steps(35) 8.5s forwards, showLine 0s 8.5s forwards;
+        }
+        .project-card:hover .typewriter-line:nth-child(10) {
+            animation: typeLine 1s steps(30) 9.7s forwards, showLine 0s 9.7s forwards;
+        }
+
+        .project-card:hover .typewriter-line:last-child {
+            border-right: 2px solid var(--flame-orange);
+            animation: typeLine 1s steps(30) 9.7s forwards, showLine 0s 9.7s forwards, blink-cursor 0.8s infinite 10.7s;
+        }
+
+        @keyframes typeLine {
+            from { 
+                width: 0;
+            }
+            to { 
+                width: 100%;
+            }
+        }
+
+        @keyframes showLine {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink-cursor {
+            0%, 50% { border-right-color: var(--flame-orange); }
+            51%, 100% { border-right-color: transparent; }
+        }
+
+        .project-code .static-content {
+            display: block;
+        }
+
+        .project-card:hover .static-content {
+            display: none;
         }
 
         .code-comment {
@@ -573,6 +671,7 @@
                         <div class="project-tab">clarafixer.py</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment"># ClaraFixer – AI Code Refactorer</span>
 <span class="code-keyword">class</span> <span class="code-function">ClaraFixer</span>:
     <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>):
@@ -582,6 +681,18 @@
     <span class="code-keyword">def</span> <span class="code-function">refactor_legacy_code</span>(<span class="code-variable">self</span>):
         <span class="code-comment"># Intelligent analysis & automated fixes</span>
         <span class="code-keyword">return</span> <span class="code-string">"Clean, optimized code"</span>
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment"># ClaraFixer – AI Code Refactorer</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">class</span> <span class="code-function">ClaraFixer</span>:</div>
+                            <div class="typewriter-line">    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>):</div>
+                            <div class="typewriter-line">        <span class="code-variable">self</span>.<span class="code-variable">ai_engine</span> = <span class="code-string">"local"</span></div>
+                            <div class="typewriter-line">        <span class="code-variable">self</span>.<span class="code-variable">privacy_first</span> = <span class="code-keyword">True</span></div>
+                            <div class="typewriter-line">    </div>
+                            <div class="typewriter-line">    <span class="code-keyword">def</span> <span class="code-function">refactor_legacy_code</span>(<span class="code-variable">self</span>):</div>
+                            <div class="typewriter-line">        <span class="code-comment"># Intelligent analysis & automated fixes</span></div>
+                            <div class="typewriter-line">        <span class="code-keyword">return</span> <span class="code-string">"Clean, optimized code"</span></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -595,6 +706,7 @@
                         <div class="project-tab">kaspa_miner.js</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment">// KASPA Miner Pro Dashboard</span>
 <span class="code-keyword">const</span> <span class="code-variable">minerConfig</span> = {
   <span class="code-variable">realTimeMonitoring</span>: <span class="code-keyword">true</span>,
@@ -606,6 +718,19 @@
   <span class="code-comment">// Professional mining operations</span>
   <span class="code-keyword">return</span> <span class="code-string">"Mining KASPA efficiently"</span>;
 }
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment">// KASPA Miner Pro Dashboard</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">const</span> <span class="code-variable">minerConfig</span> = {</div>
+                            <div class="typewriter-line">  <span class="code-variable">realTimeMonitoring</span>: <span class="code-keyword">true</span>,</div>
+                            <div class="typewriter-line">  <span class="code-variable">profitOptimization</span>: <span class="code-keyword">true</span>,</div>
+                            <div class="typewriter-line">  <span class="code-variable">securePoolManagement</span>: <span class="code-keyword">true</span></div>
+                            <div class="typewriter-line">};</div>
+                            <div class="typewriter-line"></div>
+                            <div class="typewriter-line"><span class="code-keyword">function</span> <span class="code-function">startMining</span>() {</div>
+                            <div class="typewriter-line">  <span class="code-comment">// Professional mining operations</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">return</span> <span class="code-string">"Mining KASPA efficiently"</span>;</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -619,6 +744,7 @@
                         <div class="project-tab">mindful.tsx</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment">// Mindful Minute – Wellness App</span>
 <span class="code-keyword">interface</span> <span class="code-function">WellnessApp</span> {
   <span class="code-variable">privacy</span>: <span class="code-string">"first-priority"</span>;
@@ -629,6 +755,18 @@
   <span class="code-comment">// Personalized meditation without tracking</span>
   <span class="code-keyword">return</span> <span class="code-operator">&lt;</span><span class="code-variable">Meditation</span> <span class="code-variable">private</span>={<span class="code-keyword">true</span>} <span class="code-operator">/&gt;</span>;
 };
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment">// Mindful Minute – Wellness App</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">interface</span> <span class="code-function">WellnessApp</span> {</div>
+                            <div class="typewriter-line">  <span class="code-variable">privacy</span>: <span class="code-string">"first-priority"</span>;</div>
+                            <div class="typewriter-line">  <span class="code-variable">dataStorage</span>: <span class="code-string">"local-only"</span>;</div>
+                            <div class="typewriter-line">}</div>
+                            <div class="typewriter-line"></div>
+                            <div class="typewriter-line"><span class="code-keyword">const</span> <span class="code-function">MindfulSession</span> = () => {</div>
+                            <div class="typewriter-line">  <span class="code-comment">// Personalized meditation without tracking</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">return</span> <span class="code-operator">&lt;</span><span class="code-variable">Meditation</span> <span class="code-variable">private</span>={<span class="code-keyword">true</span>} <span class="code-operator">/&gt;</span>;</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -642,6 +780,7 @@
                         <div class="project-tab">devtools.go</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment">// DevTools Suite</span>
 <span class="code-keyword">package</span> <span class="code-variable">devtools</span>
 
@@ -654,6 +793,19 @@
 <span class="code-keyword">func</span> (<span class="code-variable">ds</span> *<span class="code-function">DevSuite</span>) <span class="code-function">GenerateCode</span>() {
     <span class="code-comment">// Local-first development tools</span>
 }
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment">// DevTools Suite</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">package</span> <span class="code-variable">devtools</span></div>
+                            <div class="typewriter-line"></div>
+                            <div class="typewriter-line"><span class="code-keyword">type</span> <span class="code-function">DevSuite</span> <span class="code-keyword">struct</span> {</div>
+                            <div class="typewriter-line">    <span class="code-variable">LocalFirst</span>    <span class="code-keyword">bool</span></div>
+                            <div class="typewriter-line">    <span class="code-variable">CloudFree</span>     <span class="code-keyword">bool</span></div>
+                            <div class="typewriter-line">    <span class="code-variable">APITesting</span>   <span class="code-keyword">bool</span></div>
+                            <div class="typewriter-line">}</div>
+                            <div class="typewriter-line"><span class="code-keyword">func</span> (<span class="code-variable">ds</span> *<span class="code-function">DevSuite</span>) <span class="code-function">GenerateCode</span>() {</div>
+                            <div class="typewriter-line">    <span class="code-comment">// Local-first development tools</span></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -667,6 +819,7 @@
                         <div class="project-tab">clara_office.rs</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment">// ClaraOffice - Privacy-First Productivity</span>
 <span class="code-keyword">struct</span> <span class="code-function">ClaraOffice</span> {
     <span class="code-variable">ai_analysis</span>: <span class="code-keyword">bool</span>,
@@ -679,6 +832,19 @@
         <span class="code-comment">// AI-powered local document analysis</span>
     }
 }
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment">// ClaraOffice - Privacy-First Productivity</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">struct</span> <span class="code-function">ClaraOffice</span> {</div>
+                            <div class="typewriter-line">    <span class="code-variable">ai_analysis</span>: <span class="code-keyword">bool</span>,</div>
+                            <div class="typewriter-line">    <span class="code-variable">local_processing</span>: <span class="code-keyword">bool</span>,</div>
+                            <div class="typewriter-line">    <span class="code-variable">data_ownership</span>: <span class="code-string">"user"</span>,</div>
+                            <div class="typewriter-line">}</div>
+                            <div class="typewriter-line"></div>
+                            <div class="typewriter-line"><span class="code-keyword">impl</span> <span class="code-function">ClaraOffice</span> {</div>
+                            <div class="typewriter-line">    <span class="code-keyword">fn</span> <span class="code-function">analyze_documents</span>(<span class="code-operator">&amp;</span><span class="code-variable">self</span>) {</div>
+                            <div class="typewriter-line">        <span class="code-comment">// AI-powered local document analysis</span></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -692,6 +858,7 @@
                         <div class="project-tab">clara_cloud.rb</div>
                     </div>
                     <div class="project-code">
+                        <div class="static-content">
 <span class="code-comment"># ClaraCloud - Private Infrastructure</span>
 <span class="code-keyword">class</span> <span class="code-function">ClaraCloud</span>
   <span class="code-keyword">def</span> <span class="code-function">initialize</span>
@@ -704,6 +871,19 @@
     <span class="code-comment"># Secure hosting without compromise</span>
   <span class="code-keyword">end</span>
 <span class="code-keyword">end</span>
+                        </div>
+                        <div class="typewriter">
+                            <div class="typewriter-line"><span class="code-comment"># ClaraCloud - Private Infrastructure</span></div>
+                            <div class="typewriter-line"><span class="code-keyword">class</span> <span class="code-function">ClaraCloud</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">def</span> <span class="code-function">initialize</span></div>
+                            <div class="typewriter-line">    <span class="code-variable">@security</span> = <span class="code-string">"maximum"</span></div>
+                            <div class="typewriter-line">    <span class="code-variable">@data_ownership</span> = <span class="code-string">"developer"</span></div>
+                            <div class="typewriter-line">    <span class="code-variable">@vendor_lock_in</span> = <span class="code-keyword">false</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">end</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">def</span> <span class="code-function">deploy</span>(<span class="code-variable">app</span>)</div>
+                            <div class="typewriter-line">    <span class="code-comment"># Secure hosting without compromise</span></div>
+                            <div class="typewriter-line">  <span class="code-keyword">end</span></div>
+                        </div>
                     </div>
                 </div>
             </div>

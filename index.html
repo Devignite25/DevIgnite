@@ -232,12 +232,13 @@
         }
 
         .project-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
+            background: #1E1E1E;
+            border-radius: 8px;
+            overflow: hidden;
             box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid #333;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
         }
 
         .project-card:hover {
@@ -246,28 +247,82 @@
             border-color: var(--flame-orange);
         }
 
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-flame);
-            border-radius: 15px;
+        .project-header {
+            background: #2D2D2D;
+            padding: 8px 12px;
+            border-bottom: 1px solid #333;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: #CCCCCC;
         }
 
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+        .window-controls {
+            display: flex;
+            gap: 4px;
         }
 
-        .project-description {
-            color: var(--text-muted);
-            line-height: 1.6;
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .window-control.close { background: #FF5F57; }
+        .window-control.minimize { background: #FFBD2E; }
+        .window-control.maximize { background: #28CA42; }
+
+        .project-tab {
+            margin-left: 10px;
+            padding: 4px 8px;
+            background: #1E1E1E;
+            border: 1px solid #333;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            font-size: 0.75rem;
+            color: #CCCCCC;
+        }
+
+        .project-code {
+            padding: 1rem;
+            background: #1E1E1E;
+            color: #D4D4D4;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            min-height: 200px;
+        }
+
+        .code-comment {
+            color: #6A9955;
+        }
+
+        .code-keyword {
+            color: #569CD6;
+        }
+
+        .code-string {
+            color: #CE9178;
+        }
+
+        .code-function {
+            color: #DCDCAA;
+        }
+
+        .code-variable {
+            color: #9CDCFE;
+        }
+
+        .code-number {
+            color: #B5CEA8;
+        }
+
+        .code-operator {
+            color: #D4D4D4;
+        }
+
+        .project-icon {
+            display: none;
         }
 
         /* Movement Section */
@@ -398,13 +453,23 @@
         .footer-section a {
             color: var(--text-light);
             text-decoration: none;
-            transition: color 0.3s ease;
-            display: block;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-right: 1rem;
             margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-flame);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
         }
 
         .footer-section a:hover {
-            color: var(--flame-orange);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
         }
 
         .footer-bottom {
@@ -499,34 +564,147 @@
             <h2 class="section-title">Our Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-icon">🤖</div>
-                    <h3 class="project-title">ClaraFixer – AI Code Refactorer</h3>
-                    <p class="project-description">Intelligent code analysis and refactoring tool that helps developers clean up legacy codebases with AI-powered suggestions and automated fixes.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">clarafixer.py</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment"># ClaraFixer – AI Code Refactorer</span>
+<span class="code-keyword">class</span> <span class="code-function">ClaraFixer</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>):
+        <span class="code-variable">self</span>.<span class="code-variable">ai_engine</span> = <span class="code-string">"local"</span>
+        <span class="code-variable">self</span>.<span class="code-variable">privacy_first</span> = <span class="code-keyword">True</span>
+    
+    <span class="code-keyword">def</span> <span class="code-function">refactor_legacy_code</span>(<span class="code-variable">self</span>):
+        <span class="code-comment"># Intelligent analysis & automated fixes</span>
+        <span class="code-keyword">return</span> <span class="code-string">"Clean, optimized code"</span>
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-icon">⛏️</div>
-                    <h3 class="project-title">KASPA Miner Pro</h3>
-                    <p class="project-description">Professional mining dashboard with real-time monitoring, profit optimization, and secure pool management for KASPA cryptocurrency mining operations.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">kaspa_miner.js</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment">// KASPA Miner Pro Dashboard</span>
+<span class="code-keyword">const</span> <span class="code-variable">minerConfig</span> = {
+  <span class="code-variable">realTimeMonitoring</span>: <span class="code-keyword">true</span>,
+  <span class="code-variable">profitOptimization</span>: <span class="code-keyword">true</span>,
+  <span class="code-variable">securePoolManagement</span>: <span class="code-keyword">true</span>
+};
+
+<span class="code-keyword">function</span> <span class="code-function">startMining</span>() {
+  <span class="code-comment">// Professional mining operations</span>
+  <span class="code-keyword">return</span> <span class="code-string">"Mining KASPA efficiently"</span>;
+}
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-icon">🧘</div>
-                    <h3 class="project-title">Mindful Minute – Wellness App</h3>
-                    <p class="project-description">Privacy-first wellness application that provides personalized meditation sessions and mindfulness exercises without compromising user data.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">mindful.tsx</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment">// Mindful Minute – Wellness App</span>
+<span class="code-keyword">interface</span> <span class="code-function">WellnessApp</span> {
+  <span class="code-variable">privacy</span>: <span class="code-string">"first-priority"</span>;
+  <span class="code-variable">dataStorage</span>: <span class="code-string">"local-only"</span>;
+}
+
+<span class="code-keyword">const</span> <span class="code-function">MindfulSession</span> = () => {
+  <span class="code-comment">// Personalized meditation without tracking</span>
+  <span class="code-keyword">return</span> <span class="code-operator">&lt;</span><span class="code-variable">Meditation</span> <span class="code-variable">private</span>={<span class="code-keyword">true</span>} <span class="code-operator">/&gt;</span>;
+};
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-icon">🔧</div>
-                    <h3 class="project-title">DevTools Suite</h3>
-                    <p class="project-description">Comprehensive developer toolkit featuring local-first solutions for code generation, API testing, and project management without cloud dependencies.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">devtools.go</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment">// DevTools Suite</span>
+<span class="code-keyword">package</span> <span class="code-variable">devtools</span>
+
+<span class="code-keyword">type</span> <span class="code-function">DevSuite</span> <span class="code-keyword">struct</span> {
+    <span class="code-variable">LocalFirst</span>    <span class="code-keyword">bool</span>
+    <span class="code-variable">CloudFree</span>     <span class="code-keyword">bool</span>
+    <span class="code-variable">APITesting</span>   <span class="code-keyword">bool</span>
+}
+
+<span class="code-keyword">func</span> (<span class="code-variable">ds</span> *<span class="code-function">DevSuite</span>) <span class="code-function">GenerateCode</span>() {
+    <span class="code-comment">// Local-first development tools</span>
+}
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-icon">📊</div>
-                    <h3 class="project-title">ClaraOffice</h3>
-                    <p class="project-description">Privacy-first office productivity suite with AI-powered document analysis, spreadsheet automation, and presentation generation that keeps your data local.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">clara_office.rs</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment">// ClaraOffice - Privacy-First Productivity</span>
+<span class="code-keyword">struct</span> <span class="code-function">ClaraOffice</span> {
+    <span class="code-variable">ai_analysis</span>: <span class="code-keyword">bool</span>,
+    <span class="code-variable">local_processing</span>: <span class="code-keyword">bool</span>,
+    <span class="code-variable">data_ownership</span>: <span class="code-string">"user"</span>,
+}
+
+<span class="code-keyword">impl</span> <span class="code-function">ClaraOffice</span> {
+    <span class="code-keyword">fn</span> <span class="code-function">analyze_documents</span>(<span class="code-operator">&amp;</span><span class="code-variable">self</span>) {
+        <span class="code-comment">// AI-powered local document analysis</span>
+    }
+}
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-icon">☁️</div>
-                    <h3 class="project-title">ClaraCloud</h3>
-                    <p class="project-description">Secure, private cloud infrastructure platform designed for independent developers who need reliable hosting without compromising on data ownership.</p>
+                    <div class="project-header">
+                        <div class="window-controls">
+                            <div class="window-control close"></div>
+                            <div class="window-control minimize"></div>
+                            <div class="window-control maximize"></div>
+                        </div>
+                        <div class="project-tab">clara_cloud.rb</div>
+                    </div>
+                    <div class="project-code">
+<span class="code-comment"># ClaraCloud - Private Infrastructure</span>
+<span class="code-keyword">class</span> <span class="code-function">ClaraCloud</span>
+  <span class="code-keyword">def</span> <span class="code-function">initialize</span>
+    <span class="code-variable">@security</span> = <span class="code-string">"maximum"</span>
+    <span class="code-variable">@data_ownership</span> = <span class="code-string">"developer"</span>
+    <span class="code-variable">@vendor_lock_in</span> = <span class="code-keyword">false</span>
+  <span class="code-keyword">end</span>
+  
+  <span class="code-keyword">def</span> <span class="code-function">deploy</span>(<span class="code-variable">app</span>)
+    <span class="code-comment"># Secure hosting without compromise</span>
+  <span class="code-keyword">end</span>
+<span class="code-keyword">end</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -572,12 +750,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <a href="mailto:devignite25@gmail.com">devignite25@gmail.com</a>
+                <a href="mailto:devignite25@gmail.com" title="Email us">G</a>
             </div>
             <div class="footer-section">
                 <h3>Social</h3>
-                <a href="https://twitter.com/dev_ignite" target="_blank">@dev_ignite on Twitter/X</a>
-                <a href="https://reddit.com/u/dev_ignite25" target="_blank">u/dev_ignite25 on Reddit</a>
+                <a href="https://twitter.com/dev_ignite" target="_blank" title="Follow us on Twitter/X">X</a>
+                <a href="https://reddit.com/u/dev_ignite25" target="_blank" title="Find us on Reddit">R</a>
             </div>
         </div>
         <div class="footer-bottom">

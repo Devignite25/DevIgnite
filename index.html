@@ -461,11 +461,15 @@
             height: 600px;
             border: none;
             background: #f8f9fa;
+        }
+
+        .pdf-controls {
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--text-muted);
-            font-size: 1rem;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-top: 1px solid #E0E0E0;
         }
 
         .pdf-fallback {
@@ -974,15 +978,18 @@
                     <h3>FAA Paper</h3>
                     <p>Our latest research document</p>
                 </div>
-                <object data="FAA_paper.pdf" type="application/pdf" class="pdf-embed">
-                    <div class="pdf-fallback">
-                        <h4>PDF Viewer Not Supported</h4>
-                        <p>Your browser doesn't support embedded PDFs.</p>
-                        <a href="FAA_paper.pdf" class="pdf-download-btn" download>
-                            Download PDF
-                        </a>
-                    </div>
-                </object>
+                <iframe src="FAA_paper.pdf#toolbar=1&navpanes=1&scrollbar=1" 
+                        class="pdf-embed" 
+                        title="FAA Paper PDF">
+                </iframe>
+                <div class="pdf-controls">
+                    <a href="FAA_paper.pdf" class="pdf-download-btn" target="_blank">
+                        📄 Open in New Tab
+                    </a>
+                    <a href="FAA_paper.pdf" class="pdf-download-btn" download>
+                        ⬇️ Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </section>

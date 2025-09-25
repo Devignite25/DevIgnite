@@ -1,1032 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevIgnite LLC - Igniting Ideas into Powerful Products</title>
-    <meta name="description" content="DevIgnite LLC builds cutting-edge AI apps, developer tools, and private tech platforms for independent creators.">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --flame-orange: #FF6B35;
-            --flame-red: #E63946;
-            --flame-yellow: #FFB627;
-            --dark-bg: #1A1A1A;
-            --light-bg: #F8F9FA;
-            --text-dark: #2D3436;
-            --text-light: #FFFFFF;
-            --text-muted: #6C757D;
-            --gradient-flame: linear-gradient(135deg, #FF6B35 0%, #E63946 50%, #FFB627 100%);
-            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 30px rgba(230, 57, 70, 0.2);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            scroll-behavior: smooth;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            height: 120px;
-            width: auto;
-            max-width: 300px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: var(--flame-orange);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: var(--gradient-flame);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--flame-orange);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #1A1A1A 0%, #2D3436 100%);
-            color: var(--text-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="flame" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23FF6B35;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23E63946;stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="80" r="30" fill="url(%23flame)"/><circle cx="80" cy="20" r="40" fill="url(%23flame)"/></svg>') no-repeat;
-            background-size: cover;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: var(--gradient-flame);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.3)); }
-            to { filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.6)); }
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            margin-bottom: 2rem;
-            color: #E0E0E0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--gradient-flame);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-soft);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 80px 5%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--gradient-flame);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-bg);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: #1E1E1E;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-            border: 1px solid #333;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--flame-orange);
-        }
-
-        .project-header {
-            background: #2D2D2D;
-            padding: 8px 12px;
-            border-bottom: 1px solid #333;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            color: #CCCCCC;
-        }
-
-        .window-controls {
-            display: flex;
-            gap: 4px;
-        }
-
-        .window-control {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .window-control.close { background: #FF5F57; }
-        .window-control.minimize { background: #FFBD2E; }
-        .window-control.maximize { background: #28CA42; }
-
-        .project-tab {
-            margin-left: 10px;
-            padding: 4px 8px;
-            background: #1E1E1E;
-            border: 1px solid #333;
-            border-bottom: none;
-            border-radius: 4px 4px 0 0;
-            font-size: 0.75rem;
-            color: #CCCCCC;
-        }
-
-        .project-code {
-            padding: 1rem;
-            background: #1E1E1E;
-            color: #D4D4D4;
-            font-size: 0.85rem;
-            line-height: 1.4;
-            min-height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-code-content {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover .project-code-content {
-            opacity: 1;
-        }
-
-        .project-code .typewriter {
-            overflow: hidden;
-            white-space: pre-wrap;
-            display: none;
-        }
-
-        .project-card:hover .typewriter {
-            display: block;
-        }
-
-        .project-card:hover .project-code-content {
-            display: none;
-        }
-
-        .typewriter-line {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            opacity: 0;
-            border-right: 2px solid transparent;
-            animation-fill-mode: forwards;
-        }
-
-        .project-card:hover .typewriter-line:nth-child(1) {
-            animation: typeLine 0.8s steps(40) 0s forwards, showLine 0s 0s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(2) {
-            animation: typeLine 1s steps(20) 0.8s forwards, showLine 0s 0.8s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(3) {
-            animation: typeLine 1.2s steps(30) 1.8s forwards, showLine 0s 1.8s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(4) {
-            animation: typeLine 1s steps(35) 3s forwards, showLine 0s 3s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(5) {
-            animation: typeLine 1.2s steps(40) 4s forwards, showLine 0s 4s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(6) {
-            animation: typeLine 0.8s steps(20) 5.2s forwards, showLine 0s 5.2s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(7) {
-            animation: typeLine 1.5s steps(45) 6s forwards, showLine 0s 6s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(8) {
-            animation: typeLine 1s steps(50) 7.5s forwards, showLine 0s 7.5s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(9) {
-            animation: typeLine 1.2s steps(35) 8.5s forwards, showLine 0s 8.5s forwards;
-        }
-        .project-card:hover .typewriter-line:nth-child(10) {
-            animation: typeLine 1s steps(30) 9.7s forwards, showLine 0s 9.7s forwards;
-        }
-
-        .project-card:hover .typewriter-line:last-child {
-            border-right: 2px solid var(--flame-orange);
-            animation: typeLine 1s steps(30) 9.7s forwards, showLine 0s 9.7s forwards, blink-cursor 0.8s infinite 10.7s;
-        }
-
-        @keyframes typeLine {
-            from { 
-                width: 0;
-            }
-            to { 
-                width: 100%;
-            }
-        }
-
-        @keyframes showLine {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes blink-cursor {
-            0%, 50% { border-right-color: var(--flame-orange); }
-            51%, 100% { border-right-color: transparent; }
-        }
-
-        .project-code .static-content {
-            display: block;
-        }
-
-        .project-card:hover .static-content {
-            display: none;
-        }
-
-        .code-comment {
-            color: #6A9955;
-        }
-
-        .code-keyword {
-            color: #569CD6;
-        }
-
-        .code-string {
-            color: #CE9178;
-        }
-
-        .code-function {
-            color: #DCDCAA;
-        }
-
-        .code-variable {
-            color: #9CDCFE;
-        }
-
-        .code-number {
-            color: #B5CEA8;
-        }
-
-        .code-operator {
-            color: #D4D4D4;
-        }
-
-        .project-icon {
-            display: none;
-        }
-
-        /* Movement Section */
-        .movement {
-            background: var(--dark-bg);
-            color: var(--text-light);
-            text-align: center;
-            padding: 60px 5%;
-        }
-
-        .movement-content {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .movement-highlight {
-            color: var(--flame-orange);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .movement-highlight:hover {
-            color: var(--flame-yellow);
-            border-bottom-color: var(--flame-yellow);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--light-bg);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #E0E0E0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-            background: white;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--flame-orange);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 15px;
-            background: var(--gradient-flame);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .thank-you {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-            background: #D4F8D4;
-            border: 2px solid #4CAF50;
-            border-radius: 10px;
-            color: #2E7D2E;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: var(--text-light);
-            padding: 40px 5% 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--flame-orange);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-section a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-right: 1rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-flame);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-        }
-
-        .footer-section a:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            color: var(--text-muted);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .logo {
-                height: 80px;
-            }
-            
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: var(--shadow-soft);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 80px;
-            }
-
-            .section {
-                padding: 60px 5%;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevIgnite LLC - Igniting Ideas into Powerful Products</title>
+  <meta name="description" content="DevIgnite LLC builds cutting-edge AI apps, developer tools, and private tech platforms for independent creators.">
+  <style>
+    /* keep your existing styles */
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    .section { padding: 80px 5%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-align: center; margin-bottom: 3rem; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: linear-gradient(135deg, #FF6B35 0%, #E63946 50%, #FFB627 100%); margin: 1rem auto; border-radius: 2px; }
+    .pdf-viewer { width: 100%; height: 800px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 8px; }
+    .movement-highlight { color: #FF6B35; font-weight: 600; text-decoration: none; }
+    .movement-highlight:hover { color: #FFB627; }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <img src="logo.png" alt="DevIgnite LLC Logo" class="logo">
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-toggle" aria-label="Toggle navigation">🔥</button>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <nav>
+      <img src="logo.png" alt="DevIgnite LLC Logo" class="logo">
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#faa-paper">FAA Paper</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-toggle" aria-label="Toggle navigation">🔥</button>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Igniting Ideas into Powerful Products</h1>
-            <p>DevIgnite LLC builds cutting-edge AI apps, developer tools, and private tech platforms for independent creators.</p>
-            <a href="#contact" class="cta-button">Let's Build Together</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Igniting Ideas into Powerful Products</h1>
+      <p>DevIgnite LLC builds cutting-edge AI apps, developer tools, and private tech platforms for independent creators.</p>
+      <a href="#contact" class="cta-button">Let's Build Together</a>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About DevIgnite</h2>
-            <div class="about-content">
-                <p>We're an independent dev shop focused on creating user-first, AI-powered applications and tools. From local AI assistants to secure mining dashboards, our goal is to empower users with privacy-focused innovation. We believe in building technology that puts control back in the hands of creators and developers.</p>
+  <!-- About -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-title">About DevIgnite</h2>
+      <p>We're an independent dev shop focused on creating user-first, AI-powered applications and tools. From local AI assistants to secure mining dashboards, our goal is to empower users with privacy-focused innovation.</p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Projects</h2>
+      <div class="projects-grid">
+        <!-- FAA Project Card -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-tab">FAA_paper.pdf</div>
+          </div>
+          <div class="project-code">
+            <div class="static-content">
+<span class="code-comment"># Family AI Architecture (FAA)</span><br>
+<span class="code-keyword">Vision</span>: Safe AGI inspired by human family dynamics<br>
+<span class="code-keyword">Modules</span>: Maternal Instinct, H-Loop, L-Loop, Opponent<br>
+<span class="code-keyword">Goal</span>: Ethics as a foundation, not a retrofit.<br><br>
+<a href="FAA_paper.pdf" target="_blank" class="movement-highlight">📄 Download / Open Full Paper</a>
             </div>
+          </div>
         </div>
-    </section>
+        <!-- End FAA card -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Our Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">clarafixer.py</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment"># ClaraFixer – AI Code Refactorer</span>
-<span class="code-keyword">class</span> <span class="code-function">ClaraFixer</span>:
-    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>):
-        <span class="code-variable">self</span>.<span class="code-variable">ai_engine</span> = <span class="code-string">"local"</span>
-        <span class="code-variable">self</span>.<span class="code-variable">privacy_first</span> = <span class="code-keyword">True</span>
-    
-    <span class="code-keyword">def</span> <span class="code-function">refactor_legacy_code</span>(<span class="code-variable">self</span>):
-        <span class="code-comment"># Intelligent analysis & automated fixes</span>
-        <span class="code-keyword">return</span> <span class="code-string">"Clean, optimized code"</span>
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment"># ClaraFixer – AI Code Refactorer</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">class</span> <span class="code-function">ClaraFixer</span>:</div>
-                            <div class="typewriter-line">    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-variable">self</span>):</div>
-                            <div class="typewriter-line">        <span class="code-variable">self</span>.<span class="code-variable">ai_engine</span> = <span class="code-string">"local"</span></div>
-                            <div class="typewriter-line">        <span class="code-variable">self</span>.<span class="code-variable">privacy_first</span> = <span class="code-keyword">True</span></div>
-                            <div class="typewriter-line">    </div>
-                            <div class="typewriter-line">    <span class="code-keyword">def</span> <span class="code-function">refactor_legacy_code</span>(<span class="code-variable">self</span>):</div>
-                            <div class="typewriter-line">        <span class="code-comment"># Intelligent analysis & automated fixes</span></div>
-                            <div class="typewriter-line">        <span class="code-keyword">return</span> <span class="code-string">"Clean, optimized code"</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">kaspa_miner.js</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment">// KASPA Miner Pro Dashboard</span>
-<span class="code-keyword">const</span> <span class="code-variable">minerConfig</span> = {
-  <span class="code-variable">realTimeMonitoring</span>: <span class="code-keyword">true</span>,
-  <span class="code-variable">profitOptimization</span>: <span class="code-keyword">true</span>,
-  <span class="code-variable">securePoolManagement</span>: <span class="code-keyword">true</span>
-};
+  <!-- FAA Paper Viewer Section -->
+  <section id="faa-paper" class="section">
+    <div class="container">
+      <h2 class="section-title">Family AI Architecture Paper</h2>
+      <p style="text-align:center; margin-bottom:20px;">
+        📖 Scroll through the full vision paper below, or 
+        <a href="FAA_paper.pdf" target="_blank" class="movement-highlight">download it here</a>.
+      </p>
+      <iframe src="FAA_paper.pdf" class="pdf-viewer"></iframe>
+    </div>
+  </section>
 
-<span class="code-keyword">function</span> <span class="code-function">startMining</span>() {
-  <span class="code-comment">// Professional mining operations</span>
-  <span class="code-keyword">return</span> <span class="code-string">"Mining KASPA efficiently"</span>;
-}
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment">// KASPA Miner Pro Dashboard</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">const</span> <span class="code-variable">minerConfig</span> = {</div>
-                            <div class="typewriter-line">  <span class="code-variable">realTimeMonitoring</span>: <span class="code-keyword">true</span>,</div>
-                            <div class="typewriter-line">  <span class="code-variable">profitOptimization</span>: <span class="code-keyword">true</span>,</div>
-                            <div class="typewriter-line">  <span class="code-variable">securePoolManagement</span>: <span class="code-keyword">true</span></div>
-                            <div class="typewriter-line">};</div>
-                            <div class="typewriter-line"></div>
-                            <div class="typewriter-line"><span class="code-keyword">function</span> <span class="code-function">startMining</span>() {</div>
-                            <div class="typewriter-line">  <span class="code-comment">// Professional mining operations</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">return</span> <span class="code-string">"Mining KASPA efficiently"</span>;</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">mindful.tsx</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment">// Mindful Minute – Wellness App</span>
-<span class="code-keyword">interface</span> <span class="code-function">WellnessApp</span> {
-  <span class="code-variable">privacy</span>: <span class="code-string">"first-priority"</span>;
-  <span class="code-variable">dataStorage</span>: <span class="code-string">"local-only"</span>;
-}
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <form class="contact-form" action="https://formspree.io/f/xwpqrarn" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-<span class="code-keyword">const</span> <span class="code-function">MindfulSession</span> = () => {
-  <span class="code-comment">// Personalized meditation without tracking</span>
-  <span class="code-keyword">return</span> <span class="code-operator">&lt;</span><span class="code-variable">Meditation</span> <span class="code-variable">private</span>={<span class="code-keyword">true</span>} <span class="code-operator">/&gt;</span>;
-};
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment">// Mindful Minute – Wellness App</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">interface</span> <span class="code-function">WellnessApp</span> {</div>
-                            <div class="typewriter-line">  <span class="code-variable">privacy</span>: <span class="code-string">"first-priority"</span>;</div>
-                            <div class="typewriter-line">  <span class="code-variable">dataStorage</span>: <span class="code-string">"local-only"</span>;</div>
-                            <div class="typewriter-line">}</div>
-                            <div class="typewriter-line"></div>
-                            <div class="typewriter-line"><span class="code-keyword">const</span> <span class="code-function">MindfulSession</span> = () => {</div>
-                            <div class="typewriter-line">  <span class="code-comment">// Personalized meditation without tracking</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">return</span> <span class="code-operator">&lt;</span><span class="code-variable">Meditation</span> <span class="code-variable">private</span>={<span class="code-keyword">true</span>} <span class="code-operator">/&gt;</span>;</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">devtools.go</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment">// DevTools Suite</span>
-<span class="code-keyword">package</span> <span class="code-variable">devtools</span>
-
-<span class="code-keyword">type</span> <span class="code-function">DevSuite</span> <span class="code-keyword">struct</span> {
-    <span class="code-variable">LocalFirst</span>    <span class="code-keyword">bool</span>
-    <span class="code-variable">CloudFree</span>     <span class="code-keyword">bool</span>
-    <span class="code-variable">APITesting</span>   <span class="code-keyword">bool</span>
-}
-
-<span class="code-keyword">func</span> (<span class="code-variable">ds</span> *<span class="code-function">DevSuite</span>) <span class="code-function">GenerateCode</span>() {
-    <span class="code-comment">// Local-first development tools</span>
-}
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment">// DevTools Suite</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">package</span> <span class="code-variable">devtools</span></div>
-                            <div class="typewriter-line"></div>
-                            <div class="typewriter-line"><span class="code-keyword">type</span> <span class="code-function">DevSuite</span> <span class="code-keyword">struct</span> {</div>
-                            <div class="typewriter-line">    <span class="code-variable">LocalFirst</span>    <span class="code-keyword">bool</span></div>
-                            <div class="typewriter-line">    <span class="code-variable">CloudFree</span>     <span class="code-keyword">bool</span></div>
-                            <div class="typewriter-line">    <span class="code-variable">APITesting</span>   <span class="code-keyword">bool</span></div>
-                            <div class="typewriter-line">}</div>
-                            <div class="typewriter-line"><span class="code-keyword">func</span> (<span class="code-variable">ds</span> *<span class="code-function">DevSuite</span>) <span class="code-function">GenerateCode</span>() {</div>
-                            <div class="typewriter-line">    <span class="code-comment">// Local-first development tools</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">clara_office.rs</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment">// ClaraOffice - Privacy-First Productivity</span>
-<span class="code-keyword">struct</span> <span class="code-function">ClaraOffice</span> {
-    <span class="code-variable">ai_analysis</span>: <span class="code-keyword">bool</span>,
-    <span class="code-variable">local_processing</span>: <span class="code-keyword">bool</span>,
-    <span class="code-variable">data_ownership</span>: <span class="code-string">"user"</span>,
-}
-
-<span class="code-keyword">impl</span> <span class="code-function">ClaraOffice</span> {
-    <span class="code-keyword">fn</span> <span class="code-function">analyze_documents</span>(<span class="code-operator">&amp;</span><span class="code-variable">self</span>) {
-        <span class="code-comment">// AI-powered local document analysis</span>
-    }
-}
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment">// ClaraOffice - Privacy-First Productivity</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">struct</span> <span class="code-function">ClaraOffice</span> {</div>
-                            <div class="typewriter-line">    <span class="code-variable">ai_analysis</span>: <span class="code-keyword">bool</span>,</div>
-                            <div class="typewriter-line">    <span class="code-variable">local_processing</span>: <span class="code-keyword">bool</span>,</div>
-                            <div class="typewriter-line">    <span class="code-variable">data_ownership</span>: <span class="code-string">"user"</span>,</div>
-                            <div class="typewriter-line">}</div>
-                            <div class="typewriter-line"></div>
-                            <div class="typewriter-line"><span class="code-keyword">impl</span> <span class="code-function">ClaraOffice</span> {</div>
-                            <div class="typewriter-line">    <span class="code-keyword">fn</span> <span class="code-function">analyze_documents</span>(<span class="code-operator">&amp;</span><span class="code-variable">self</span>) {</div>
-                            <div class="typewriter-line">        <span class="code-comment">// AI-powered local document analysis</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="window-controls">
-                            <div class="window-control close"></div>
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                        </div>
-                        <div class="project-tab">clara_cloud.rb</div>
-                    </div>
-                    <div class="project-code">
-                        <div class="static-content">
-<span class="code-comment"># ClaraCloud - Private Infrastructure</span>
-<span class="code-keyword">class</span> <span class="code-function">ClaraCloud</span>
-  <span class="code-keyword">def</span> <span class="code-function">initialize</span>
-    <span class="code-variable">@security</span> = <span class="code-string">"maximum"</span>
-    <span class="code-variable">@data_ownership</span> = <span class="code-string">"developer"</span>
-    <span class="code-variable">@vendor_lock_in</span> = <span class="code-keyword">false</span>
-  <span class="code-keyword">end</span>
-  
-  <span class="code-keyword">def</span> <span class="code-function">deploy</span>(<span class="code-variable">app</span>)
-    <span class="code-comment"># Secure hosting without compromise</span>
-  <span class="code-keyword">end</span>
-<span class="code-keyword">end</span>
-                        </div>
-                        <div class="typewriter">
-                            <div class="typewriter-line"><span class="code-comment"># ClaraCloud - Private Infrastructure</span></div>
-                            <div class="typewriter-line"><span class="code-keyword">class</span> <span class="code-function">ClaraCloud</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">def</span> <span class="code-function">initialize</span></div>
-                            <div class="typewriter-line">    <span class="code-variable">@security</span> = <span class="code-string">"maximum"</span></div>
-                            <div class="typewriter-line">    <span class="code-variable">@data_ownership</span> = <span class="code-string">"developer"</span></div>
-                            <div class="typewriter-line">    <span class="code-variable">@vendor_lock_in</span> = <span class="code-keyword">false</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">end</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">def</span> <span class="code-function">deploy</span>(<span class="code-variable">app</span>)</div>
-                            <div class="typewriter-line">    <span class="code-comment"># Secure hosting without compromise</span></div>
-                            <div class="typewriter-line">  <span class="code-keyword">end</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Movement Section -->
-    <section class="movement">
-        <div class="container">
-            <div class="movement-content">
-                <p>We proudly support the <a href="https://devignite25.github.io/openai-app-platform-request/" target="_blank" class="movement-highlight">Free The Devs movement</a> — calling for a fair, developer-first AI app ecosystem that empowers creators and maintains user privacy.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <form class="contact-form" action="https://formspree.io/f/xwpqrarn" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
-            <div class="thank-you" id="thankYou">
-                <h3>🔥 Thank You!</h3>
-                <p>Your message has been sent successfully. We'll get back to you soon!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <a href="mailto:devignite25@gmail.com" title="Email us">G</a>
-            </div>
-            <div class="footer-section">
-                <h3>Social</h3>
-                <a href="https://twitter.com/dev_ignite" target="_blank" title="Follow us on Twitter/X">X</a>
-                <a href="https://reddit.com/u/dev_ignite25" target="_blank" title="Find us on Reddit">R</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DevIgnite LLC. All rights reserved. Built with 🔥 and passion.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        navMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission handling
-        const form = document.querySelector('.contact-form');
-        const thankYouMessage = document.getElementById('thankYou');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    form.style.display = 'none';
-                    thankYouMessage.style.display = 'block';
-                    
-                    // Reset form after 5 seconds
-                    setTimeout(() => {
-                        form.reset();
-                        form.style.display = 'block';
-                        thankYouMessage.style.display = 'none';
-                    }, 5000);
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('There was an error sending your message. Please try again or contact us directly at devignite25@gmail.com');
-            }
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-    </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DevIgnite LLC. All rights reserved. Built with 🔥 and passion.</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,5 +1,26 @@
 export const apps = [
   {
+    id: 'oneday-journal',
+    name: 'OneDay Journal',
+    tagline: 'Your Private Daily Journal',
+    description: 'Beautiful, secure daily journaling with photos, streaks, and PDF yearbooks. Your entries stay private on your device.',
+    icon: '/assets/icons/oneday_journal.png',
+    color: 'from-blue-400 to-orange-300',
+    features: [
+      'Local-only data storage',
+      'PIN & biometric security',
+      'Photo attachments',
+      'Daily streak tracking',
+      'PDF yearbook generation',
+      'No cloud, no tracking'
+    ],
+    status: 'available',
+    appStoreUrl: '', // Add when published
+    playStoreUrl: '', // Add when published
+    hasPrivacyPolicy: true,
+    tech: ['Flutter', 'Dart', 'Hive Database']
+  },
+  {
     id: 'mindfulminute',
     name: 'MindfulMinute',
     tagline: 'Privacy-First Wellness App',

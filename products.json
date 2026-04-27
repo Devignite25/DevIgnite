@@ -1,5 +1,17 @@
 [
   {
+    "name": "Audio Recorder for Linux",
+    "tagline": "Simple desktop recorder for browser and system audio",
+    "description": "A lightweight Linux desktop app that records whatever is playing through your current output device, including browser audio, music, calls, and videos. Ships as an AppImage with a quick-start guide and proprietary license.",
+    "price": "",
+    "gumroadUrl": "https://devignite25.gumroad.com/l/AudioRecorder",
+    "buttonLabel": "Get on Gumroad",
+    "image": "images/Recorder.png",
+    "imageFit": "contain",
+    "badge": "Linux App",
+    "features": ["AppImage Download", "Records System Audio", "Browser Audio Capture", "Saves to ~/Recordings"]
+  },
+  {
     "name": "Noted",
     "tagline": "Lightning-Fast, Privacy-First Block Editor for the AI Era",
     "description": "Your notes stay securely on your local device — they never leave your computer. Built for developers and power users, Noted natively supports the Model Context Protocol (MCP), letting you safely expose your local notes to AI tools like Claude, Cursor, and other MCP-compatible clients.",

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevIgnite LLC — AI-Driven Technology</title>
-  <meta name="description" content="DevIgnite builds interactive platforms, developer tools, and cybersecurity training environments powered by intelligent systems.">
+  <title>About — DevIgnite LLC</title>
+  <meta name="description" content="Learn about DevIgnite's work across interactive platforms, developer tools, and AI research and development.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       </a>
       <div class="nav__links" id="navLinks">
         <a href="products.html" class="nav__link">Products</a>
-        <a href="about.html" class="nav__link">About</a>
+        <a href="about.html" class="nav__link nav__link--active" aria-current="page">About</a>
         <a href="contact.html" class="nav__link">Contact</a>
         <a href="get-started.html" class="nav__link nav__link--cta">Get Started</a>
       </div>
@@ -32,27 +32,40 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero__bg">
-      <div class="hero__grid"></div>
-      <div class="hero__glow hero__glow--1"></div>
-      <div class="hero__glow hero__glow--2"></div>
-    </div>
-    <div class="hero__content reveal">
-      <img src="logo1.png" alt="DevIgnite" class="hero__logo">
-      <div class="hero__badge">AI-Driven Technology</div>
-      <h1 class="hero__title">
-        Build the Future.<br>
-        <span class="hero__title--accent">Ignite Innovation.</span>
-      </h1>
-      <p class="hero__sub">We turn ambitious ideas into practical AI-powered tools that help creators build faster, learn deeper, and own the technology they depend on.</p>
-      <div class="hero__actions">
-        <a href="products.html" class="btn btn--primary">Explore Products</a>
-        <a href="contact.html" class="btn btn--ghost">Contact Us</a>
+  <!-- About -->
+  <main>
+    <section class="about" id="about">
+      <div class="section__inner">
+        <div class="section__header reveal">
+          <span class="section__tag">What We Do</span>
+          <h1 class="section__title">Three Pillars of <span class="text--accent">DevIgnite</span></h1>
+        </div>
+        <div class="about__grid">
+          <div class="about__card reveal">
+            <div class="about__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="7 8 10 11 7 14"/><line x1="12" y1="14" x2="16" y2="14"/></svg>
+            </div>
+            <h2 class="about__card-title">Interactive Platforms</h2>
+            <p class="about__card-text">Gamified learning environments and simulation engines that adapt to user behavior using AI-driven feedback loops.</p>
+          </div>
+          <div class="about__card reveal">
+            <div class="about__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+            </div>
+            <h2 class="about__card-title">Developer Tools</h2>
+            <p class="about__card-text">Intelligent automation for code generation, debugging, testing, and deployment. Accelerate every stage of the dev lifecycle.</p>
+          </div>
+          <div class="about__card reveal">
+            <div class="about__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+            </div>
+            <h2 class="about__card-title">AI R&D</h2>
+            <p class="about__card-text">Pioneering research and development in artificial intelligence — from model integration and agent architectures to novel AI-powered product experiences.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

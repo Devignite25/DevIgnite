@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — DevIgnite LLC</title>
+  <meta name="description" content="Contact DevIgnite for support, product questions, business inquiries, and collaboration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="logo.png" alt="DevIgnite" class="nav__logo-img">
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="products.html" class="nav__link">Products</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="contact.html" class="nav__link nav__link--active" aria-current="page">Contact</a>
+        <a href="get-started.html" class="nav__link nav__link--cta">Get Started</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contact -->
+  <main>
+    <section class="contact" id="contact">
+      <div class="section__inner">
+        <div class="section__header reveal">
+          <span class="section__tag">Contact</span>
+          <h1 class="section__title">Need Support or Want to <span class="text--accent">Build?</span></h1>
+          <p class="section__sub">Send a product question, support request, or collaboration note straight to DevIgnite.</p>
+        </div>
+        <div class="contact__layout">
+          <div class="contact__info reveal">
+            <div class="contact__card">
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              </span>
+              <div>
+                <h2>Email</h2>
+                <p>For support, business inquiries, and product feedback.</p>
+                <a href="mailto:devignite25@gmail.com">devignite25@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m8 8 8 8"/><path d="m16 8-8 8"/></svg>
+              </span>
+              <div>
+                <h2>Social</h2>
+                <p>Follow product updates and announcements.</p>
+                <div class="contact__links">
+                  <a href="https://twitter.com/dev_ignite" target="_blank" rel="noopener noreferrer">@dev_ignite</a>
+                  <a href="https://www.facebook.com/profile.php?id=61588371806409" target="_blank" rel="noopener noreferrer">The Wider Lens</a>
+                  <a href="https://www.facebook.com/profile.php?id=61588510303304" target="_blank" rel="noopener noreferrer">The Wider Lens Español</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact__form reveal" id="contactForm" action="https://formspree.io/f/xwpqrarn" method="POST">
+            <input type="hidden" name="_subject" value="New DevIgnite website message">
+            <div class="form__row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form__row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form__row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary contact__submit" id="contactSubmit">Send Message</button>
+            <p class="contact__status" id="contactStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="logo.png" alt="DevIgnite" class="footer__logo">
+          <p class="footer__tagline">AI-driven technology for builders, hackers, and innovators.</p>
+        </div>
+        <div class="footer__nav">
+          <h4 class="footer__nav-title">Navigate</h4>
+          <a href="products.html" class="footer__link">Products</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="get-started.html" class="footer__link">Get Started</a>
+          <a href="https://gumroad.com/devignite25" target="_blank" rel="noopener noreferrer" class="footer__link">Gumroad Store</a>
+          <a href="https://ko-fi.com/s/afca7d17c3" target="_blank" rel="noopener noreferrer" class="footer__link">AIGrace on Ko-fi</a>
+        </div>
+        <div class="footer__nav">
+          <h4 class="footer__nav-title">Connect</h4>
+          <a href="mailto:devignite25@gmail.com" class="footer__link">Email</a>
+          <a href="https://twitter.com/dev_ignite" target="_blank" rel="noopener noreferrer" class="footer__link">Twitter / X</a>
+          <a href="https://www.facebook.com/profile.php?id=61588371806409" target="_blank" rel="noopener noreferrer" class="footer__link">The Wider Lens</a>
+          <a href="https://www.facebook.com/profile.php?id=61588510303304" target="_blank" rel="noopener noreferrer" class="footer__link">The Wider Lens Español</a>
+          <a href="https://reddit.com/u/dev_ignite25" target="_blank" rel="noopener noreferrer" class="footer__link">Reddit</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevIgnite LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

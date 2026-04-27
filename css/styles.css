@@ -144,6 +144,7 @@ img {
   font-size: 1.05rem;
 }
 
+.btn--store,
 .btn--gumroad {
   background: linear-gradient(135deg, var(--magenta), #e0194e);
   color: var(--white);
@@ -151,6 +152,7 @@ img {
   width: 100%;
 }
 
+.btn--store:hover,
 .btn--gumroad:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 40px var(--magenta-dim), 0 0 80px rgba(255, 45, 107, 0.15);
@@ -215,6 +217,10 @@ img {
 }
 
 .nav__link:hover {
+  color: var(--white);
+}
+
+.nav__link--active {
   color: var(--white);
 }
 
@@ -517,6 +523,11 @@ img {
   object-fit: cover;
 }
 
+.product-card__image--contain img {
+  object-fit: contain;
+  padding: 8px;
+}
+
 .product-card__image-placeholder {
   font-family: var(--font-display);
   font-size: 2.5rem;
@@ -580,6 +591,7 @@ img {
   font-weight: 700;
 }
 
+.product-card__footer .btn--store,
 .product-card__footer .btn--gumroad {
   width: auto;
   flex: 1;
@@ -701,6 +713,13 @@ img {
   line-height: 1.7;
 }
 
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
 /* ---- Contact ---- */
 
 .contact {
@@ -752,6 +771,7 @@ img {
   height: 22px;
 }
 
+.contact__card h2,
 .contact__card h3 {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -1156,9 +1176,20 @@ img {
     text-align: center;
   }
 
+  .product-card__footer .btn--store,
   .product-card__footer .btn--gumroad {
     width: 100%;
     text-align: center;
+  }
+
+  .cta__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta__actions .btn {
+    width: 100%;
+    max-width: 280px;
   }
 
   .about__card {

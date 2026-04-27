@@ -19,8 +19,11 @@
     const imageContent = product.image
       ? `<img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}">`
       : `<span class="product-card__image-placeholder">${escapeHTML(product.name.charAt(0))}</span>`;
+    const imageClass = product.imageFit === 'contain'
+      ? 'product-card__image product-card__image--contain'
+      : 'product-card__image';
 
-    const featuresHTML = product.features
+    const featuresHTML = (product.features || [])
       .map(f => `<span class="product-card__feature">${escapeHTML(f)}</span>`)
       .join('');
 
@@ -28,16 +31,19 @@
       ? `<span class="product-card__price">${escapeHTML(product.price)}</span>`
       : '';
 
+    const productUrl = product.url || product.gumroadUrl || '#';
+    const buttonLabel = product.buttonLabel || (product.gumroadUrl ? 'Get on Gumroad' : 'View Product');
+
     card.innerHTML = `
       ${badgeHTML}
-      <div class="product-card__image">${imageContent}</div>
+      <div class="${imageClass}">${imageContent}</div>
       <h3 class="product-card__name">${escapeHTML(product.name)}</h3>
       <div class="product-card__tagline">${escapeHTML(product.tagline)}</div>
       <p class="product-card__desc">${escapeHTML(product.description)}</p>
       <div class="product-card__features">${featuresHTML}</div>
       <div class="product-card__footer">
         ${priceHTML}
-        <a href="${escapeHTML(product.gumroadUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn--gumroad">Get on Gumroad</a>
+        <a href="${escapeHTML(productUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn--store">${escapeHTML(buttonLabel)}</a>
       </div>
     `;
 

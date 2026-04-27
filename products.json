@@ -8,5 +8,17 @@
     "image": "images/noted.png",
     "badge": "",
     "features": ["100% Local & Private", "AI Agent Setup", "Granular Access Control", "Cross-Platform"]
+  },
+  {
+    "name": "AIGrace",
+    "tagline": "AI-generated music album about pain, survival, and hope",
+    "description": "AIGrace is a raw, unfiltered journey through the moments we don't talk about: the ones we feel at 3 a.m., the ones we hide behind smiles, and the ones that set us on fire. From the forbidden ache of Flammable to the quiet hope of Rise And Love Again, this album maps human pain and the stubborn will to survive it.",
+    "price": "",
+    "url": "https://ko-fi.com/s/afca7d17c3",
+    "buttonLabel": "Get on Ko-fi",
+    "image": "images/AIGrace.png",
+    "imageFit": "contain",
+    "badge": "Album",
+    "features": ["AI-Generated Music", "10-Track Album", "Emotional Storytelling", "Ko-fi Release"]
   }
 ]
